@@ -16,7 +16,7 @@ BOOST_AUTO_TEST_SUITE(hi_boost)
 	    BOOST_TEST_MESSAGE(" - sum: " << sum);
 	    BOOST_TEST_MESSAGE(" - product: " << product);
 	    BOOST_TEST_MESSAGE(" - diff " << sum-product);
-	    BOOST_TEST(sum == product, boost::test_tools::tolerance(1e-15));
+	    BOOST_TEST(sum == product);
 	}
 
 	BOOST_AUTO_TEST_CASE(hello_world2)
