@@ -14,7 +14,7 @@ CTestTestfile.cmake
 **/CTestTestfile.cmake
 *.ts
 *.yaml
-!**/CMakeLists.txt
+!**/CMakeLists.txt #Para que no se ignore el CMakeLists.txt de cada carpeta
 
 # Compiled / generated
 *.o
@@ -29,6 +29,8 @@ a.out
 # IDE / editors
 .idea/
 .vscode/
+.cache/
+**/.cache/
 *.swp
 *.swo
 *~

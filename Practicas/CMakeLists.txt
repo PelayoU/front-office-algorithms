@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.5)
 
-project (sqf)
+project (Practicas)
+
+# Export compile commands for clangd/IDE (find Boost, includes, etc.)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON) #Para que al ejecutar cmake .. se genere compile_commands.json para que no me aparezca en el IDE que no encuentra Boost, etc.
 
 # 1. Define some well-known folders:
 # - Place for compile binaries
