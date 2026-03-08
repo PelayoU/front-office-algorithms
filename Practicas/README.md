@@ -10,6 +10,16 @@ Esta práctica implementa un motor de valoración de instrumentos financieros de
 2. **Patrón Factory con registro de builders** (Tema 2, diseño): construcción de instrumentos a partir de una descripción de alto nivel sin que el cliente conozca los constructores concretos.
 3. **Bootstrapping iterativo de la curva de descuento** (Tema 3): calibración de los factores de descuento nodo a nodo a partir de depósitos y swaps cotizados en el mercado (par swaps).
 
+
+### Diagramas
+
+![alt text](assets/diagrama_1.png)
+
+![alt text](assets/diagrama_factory.png)
+
+![alt text](assets/diagrama_bootstrapping.png)
+
+
 ### Alcance
 
 | Módulo | Clases / ficheros principales |
@@ -245,7 +255,6 @@ Tests sobre Tabla 6 (suite `Bootstrapping_README_Table6_tests`):
 | **Calendario de festivos** | Los schedules se generan por fechas exactas (o con `make_schedule`); no se aplican convenciones de negocio (Modified Following, etc.) para mover fechas a días hábiles. |
 
 No queda trabajo obligatorio pendiente para la entrega; los ítems anteriores son extensiones opcionales.
-
 ---
 
 ## Checklist de entrega (referencia)
