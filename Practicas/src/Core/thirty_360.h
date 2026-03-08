@@ -55,7 +55,7 @@ public:
 
     /**
     * @brief El metodo operator() es el que se encarga de sacar el DFC (day count fraction) entre dos fechas.
-    * Para ello utiliza el metodo compute_daycount() que calcula el numero de días entre dos fechas y luuego lo divide por 360.0 para obtener el DFC.
+    * Para ello utiliza el metodo compute_daycount() que calcula el numero de días entre dos fechas y luego lo divide por 360.0 para obtener el DFC.
     * Como compute_daycount está sobrecargado para aceptar tanto string como boost::gregorian::date, usamos un template en operator() para poder llamarlo con cualquier tipo de fecha.
     * Los metodos template se definen y declaran en el .h a diferencia de los metodos normales que se declaran en el .h y se definen en el .cpp
     * @param start Fecha de inicio en formato DATE o String.

@@ -3,6 +3,11 @@
 #include <string>
 #include <boost/date_time/gregorian/gregorian.hpp>
 
+/**
+ * @brief Clase base para convenciones de conteo de días (day count).
+ * Las clases derivadas (Actual_360, Thirty_360) implementan el cálculo del DCF (day count fraction)
+ * entre dos fechas. Proporciona make_date() estático para convertir strings en fechas.
+ */
 class DayCountCalculator {
 public:
 

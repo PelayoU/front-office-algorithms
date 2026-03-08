@@ -2,24 +2,28 @@
 #define INSTRUMENTDESCRIPTION_H
 
 #include <string>
+#include <vector>
+#include <boost/date_time/gregorian/gregorian.hpp>
 
 
 
 /**
- * @brief Descripción de una pata (leg) de un instrumento: fechas, nominal, tipo de interés y convención de fechas.
- * @note Se usa tanto para las patas payer/receiver de un swap como para la definición de cupones de un bono.
- * He puesto struct en lugar de class porque como voy a tener una factoria o quien construya la descripcion y necesitará
- * tocar 15 parámetros distintos para configurar un Swap (fechas, nominales, calendarios, convenciones de días, etc.), 
- * poner un get y un set para cada uno es una pérdida de tiempo y hace que el código sea mucho más difícil de leer.
- * Ademas, como es una descripcion de una pata de un instrumento, no tiene sentido que tenga metodos, solo tiene atributos.
+ * @brief Descripción de una pata (leg) de un instrumento.
+ *
+ * Contiene el schedule explícito de fechas de pago (ya generado por quien crea la descripción,
+ * por ejemplo con Rates::make_schedule), el nominal, tipo, convención de días y si es fija o flotante.
+ *
+ * El schedule es un vector de fechas [inicio, pago1, pago2, ..., vencimiento].
+ * Las fechas deben coincidir con los nodos de la ZeroCouponCurve para poder descontar.
+ *
+ * He puesto struct en lugar de class porque la descripción no tiene comportamiento; solo datos.
  */
 struct LegDescription {
-    std::string start_date;
-    std::string end_date;
-    double notional = 0.0; // valor nominal del instrumento, por ejemplo, 1000000 euros. Inicializado a 0.0 para evitar warnings.
-    double rate = 0.0; // tipo de interés del instrumento, por ejemplo, 0.05 para un 5% anual. Inicializado a 0.0 para evitar warnings.
-    std::string day_count = "30/360";  // "30/360" o "Actual/360".Inicializado a "30/360" para evitar warnings. Quizas mejor un enum para day_count, luego lo miro.
-    bool is_fixed = true;              // true = pata fija, false = pata flotante (solo relevante en swaps)
+    std::vector<boost::gregorian::date> schedule; // fechas [inicio, ..., vencimiento]; mínimo 2 fechas.
+    double notional = 0.0;
+    double rate = 0.0;
+    std::string day_count = "30/360";  // "30/360" o "Actual/360"
+    bool is_fixed = true;              // true = pata fija, false = pata flotante
 };
 
 
