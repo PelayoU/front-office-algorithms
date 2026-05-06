@@ -1,0 +1,40 @@
+# CMake
+build/
+**/build/
+CMakeCache.txt
+**/CMakeCache.txt
+CMakeFiles/
+**/CMakeFiles/
+cmake_install.cmake
+**/cmake_install.cmake
+Makefile
+**/Makefile
+*.make
+CTestTestfile.cmake
+**/CTestTestfile.cmake
+*.ts
+*.yaml
+!**/CMakeLists.txt #Para que no se ignore el CMakeLists.txt de cada carpeta
+
+# Compiled / generated
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.exe
+a.out
+*.out
+
+# IDE / editors
+.idea/
+.vscode/
+.cache/
+**/.cache/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
